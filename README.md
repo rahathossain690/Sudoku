@@ -6,22 +6,26 @@ Link to the page:
 
 # How to use
 ## Step 1
-Add sudoku-solver.js library on your HTML code.
+Download and add sudoku-solver.js library on your HTML code.
 ```
 <script type="text/javascript" src="sudoku-solver.js"></script>
 ```
 ## Step 2
-Make Game instance. The class takes game-matrix (2d array) as argument. Suppose sudoku input is like this. Then the game-matrix will be. [Carefully! The empty cells must be replaced by 0.] 
+Make Game instance. The class takes game-matrix (2d array) as argument. 
+
+Suppose sudoku input is like this. ![DEMO_SUDOKU_IMAGE](https://github.com/rahathossain690/Sudoku-Solver/blob/master/Extras/demo_game.png?raw=true)
+
+Then the game-matrix will be exactly like shown below. [Carefully! The empty cells must be replaced by 0.] 
 ```
 let matrix = [	[0, 0, 3, 9, 7, 0, 0, 0, 0]	,
-								[8, 0, 2, 6, 0, 0, 0, 0, 0]	,
-								[0, 7, 1, 0, 8, 0, 0, 4, 0]	,
-								[7, 1, 6, 0, 0, 0, 0, 9, 0]	,
-								[5, 9, 0, 0, 1, 6, 2, 3, 8]	,
-								[0, 3, 8, 4, 0, 0, 6, 7, 0]	,
-								[0, 0, 9, 5, 0, 2, 0, 0, 0]	,
-								[4, 0, 0, 1, 0, 0, 9, 0, 5]	,
-								[1, 0, 5, 0, 9, 0, 4, 0, 3]	];
+		[8, 0, 2, 6, 0, 0, 0, 0, 0]	,
+		[0, 7, 1, 0, 8, 0, 0, 4, 0]	,
+		[7, 1, 6, 0, 0, 0, 0, 9, 0]	,
+		[5, 9, 0, 0, 1, 6, 2, 3, 8]	,
+		[0, 3, 8, 4, 0, 0, 6, 7, 0]	,
+		[0, 0, 9, 5, 0, 2, 0, 0, 0]	,
+		[4, 0, 0, 1, 0, 0, 9, 0, 5]	,
+		[1, 0, 5, 0, 9, 0, 4, 0, 3]	];
 
 let game = new Game(matrix);
 

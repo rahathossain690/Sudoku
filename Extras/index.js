@@ -66,5 +66,4 @@ document.getElementById("solve").addEventListener("click", noReturn => {
 	}
 	else{
 		document.getElementById("wrong").click();
-	}
-});
+	};

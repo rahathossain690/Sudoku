@@ -1,11 +1,6 @@
 # Sudoku Solver
 Javascript library to solve Sudoku. Made for fun.
 
-# Web page
-Link to the page: https://rahathossain690.github.io/Sudoku-Solver/index.html
-
-Just a simple demonstration.
-
 # How to use
 ## Step 1
 Download and add sudoku-solver.js library on your HTML code.

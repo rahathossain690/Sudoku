@@ -2,10 +2,11 @@
 	<title>Sudoku Solver</title>
 	<link rel="icon" 
       type="image/png" 
-      href="fav.png" />
+      href="Extras/fav.png" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="sudoku-solver.js"></script>
 	<style>
 		.tddif{
 			background-color: #2d2d2d;
@@ -23,11 +24,14 @@
 			width: 40px;
 			height: 40px;
 			border: 1px solid grey;
+			cursor: cell;
 		}
-
 		.clicked{
 			background-color: #2d2d2d;
-			color: white;
+			color : white;
+		}
+		.hide{
+			visibility: hidden;
 		}
 	</style>
 </head>
@@ -148,19 +152,20 @@
 	  <br>
 	</div>
   <!-- End Game Table -->
+
   <!-- Start Control -->
   <div class="container">
   	<div class="btn-group btn-group-justified">
-  		<span class="btn btn-default" onclick="numpad(0)"><img src="eraser.png" width="30px"></img></span>
-  		<span class="btn btn-default" onclick="numpad(1)">1</span>
-  		<span class="btn btn-default" onclick="numpad(2)">2</span>
-  		<span class="btn btn-default" onclick="numpad(3)">3</span>
-  		<span class="btn btn-default" onclick="numpad(4)">4</span>
-  		<span class="btn btn-default" onclick="numpad(5)">5</span>
-  		<span class="btn btn-default" onclick="numpad(6)">6</span>
-  		<span class="btn btn-default" onclick="numpad(7)">7</span>
-  		<span class="btn btn-default" onclick="numpad(8)">8</span>
-  		<span class="btn btn-default" onclick="numpad(9)">9</span>
+  		<span class="btn btn-default" onclick="numpad(0)" Id="b0"><img src="Extras/eraser.png" width="30px"></img></span>
+  		<span class="btn btn-default" onclick="numpad(1)" Id="b1">1</span>
+  		<span class="btn btn-default" onclick="numpad(2)" Id="b2">2</span>
+  		<span class="btn btn-default" onclick="numpad(3)" Id="b3">3</span>
+  		<span class="btn btn-default" onclick="numpad(4)" Id="b4">4</span>
+  		<span class="btn btn-default" onclick="numpad(5)" Id="b5">5</span>
+  		<span class="btn btn-default" onclick="numpad(6)" Id="b6">6</span>
+  		<span class="btn btn-default" onclick="numpad(7)" Id="b7">7</span>
+  		<span class="btn btn-default" onclick="numpad(8)" Id="b8">8</span>
+  		<span class="btn btn-default" onclick="numpad(9)" Id="b9">9</span>
 		</div>
 		<br>
   </div>
@@ -168,9 +173,8 @@
   <!-- Start Action -->
   
   <div class="container" align="center">
-  	<button type="button" class="btn btn-success" onclick="solve()">Solve</button>
-  	<button type="button" class="btn btn-success" onclick="visualize()">Visualize</button>
-  	<button type="button" class="btn btn-primary" onclick="clear()">Clear</button>
+  	<button type="button" class="btn btn-success" id="solve">Solve</button>
+  	<button type="button" class="btn btn-primary" onclick="clearGame()">Clear</button>
   	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">How to</button>
   	<!-- Modal -->
 	  <div class="modal fade" id="myModal" role="dialog">
@@ -182,9 +186,9 @@
 	          <h4 class="modal-title">Sudoku Solver: How to</h4>
 	        </div>
 	        <div class="modal-body">
-	        	<p>1. First clear the area. First game board is just for an example.</p>
-	        	<p>2. Select a number, Click to the desired box to place that. Select erase if needed.</p>
-	        	<p>Hit solve / visualize.</p>
+	        	<p>First clear the area. First game board is just for an example.</p>
+	        	<p>Select a number, Click to the desired box to place that. Select erase if needed.</p>
+	        	<p>Hit solve.</p>
 	        </div>
 	        <div class="modal-footer">
 	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -196,11 +200,32 @@
 	  <!-- End Modal -->
   </div>
   <!-- End Action -->
-
+  <button type="button" class="btn btn-info hide" Id="wrong" data-toggle="modal" data-target="#myModal2">How to</button>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sudoku Solver: Wrong</h4>
+        </div>
+        <div class="modal-body">
+        	<p>Given sudoku is not correct.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- End Modal -->
   <!-- Footer -->
 	<footer class="page-footer font-small pt-4 myfoot">
 		<div class="container">
 		<p align="right">Made by <a href="https://www.facebook.com/rahat.hossain.9678">Rahat Hossain</a></p></div>
 	</footer>
 	<!-- Footer -->
+	<script src="Extras/index.js"></script>
 </body>

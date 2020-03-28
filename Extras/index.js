@@ -26,6 +26,7 @@ function changeCell(i, j){
 
 // numpad function
 function numpad(digit){
+	for(let i = 0; i <= 9; i++) document.getElementById("b" + i).classList.remove("clicked");
 	currentDigit = digit;
 	document.getElementById("b" + digit).classList.add("clicked");
 }
@@ -39,8 +40,31 @@ function clearGame(){
 	}
 }
 
-// solve
-document.getElementById("solve").addEventListener("click", noReturn => {
+// check game
+function checkGame(){
+	let res = new Game().check(genMat());
+	if(res){
+		document.getElementById("result").innerHTML = "Correct!";
+	} else{
+		document.getElementById("result").innerHTML = "Incorrect!";
+	}
+	document.getElementById("checkThing").click();
+}
+
+// gererate
+function generate(){
+	clearGame();
+	let game = new Game();
+	let res = game.generate();
+	for(let i = 1; i <= 9; i++){
+		for(let j = 1; j <= 9; j++){
+			if(res[i - 1][j - 1] === 0) continue;
+			document.getElementById("r" + i + "" + j).innerHTML = res[i - 1][j - 1];
+		}
+	}
+}
+
+function genMat(){
 	let matrix = []; // for making an input matrix (2x2 array)
 	for(let i = 1; i <= 9; i++){
 		let rowVal = [];
@@ -52,8 +76,14 @@ document.getElementById("solve").addEventListener("click", noReturn => {
 		}
 		matrix.push(rowVal);
 	}
-	let game = new Game(matrix);
-	res = game.solve();
+	return matrix;
+}
+
+// solve
+document.getElementById("solve").addEventListener("click", noReturn => {
+	let matrix = genMat();
+	let game = new Game();
+	res = game.solve(matrix);
 	// res will be null if no ans is possible
 	// or it will give the result Matrix (2x2 array)
 	if(res){

@@ -1,5 +1,5 @@
 <head>
-	<title>Sudoku Solver</title>
+	<title>Sudoku</title>
 	<link rel="icon" 
       type="image/png" 
       href="Extras/fav.png" />
@@ -35,12 +35,12 @@
 		}
 	</style>
 </head>
-<body>
+<body onload ="generate()">
 	<!-- start Navbar -->
 	<nav class="navbar navbar-inverse">
   	<div class="container">
     	<div class="navbar-header">
-      	<div class="navbar-brand">Sudoku Solver</div>
+      	<div class="navbar-brand">Sudoku</div>
     	</div>
   	</div>
 	</nav>
@@ -175,6 +175,8 @@
   <div class="container" align="center">
   	<button type="button" class="btn btn-success" id="solve">Solve</button>
   	<button type="button" class="btn btn-primary" onclick="clearGame()">Clear</button>
+  	<button type="button" class="btn btn-warning" onclick="checkGame()">Check</button>
+  	<button type="button" class="btn btn-danger" onclick="generate()">Generate</button>
   	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">How to</button>
   	<!-- Modal -->
 	  <div class="modal fade" id="myModal" role="dialog">
@@ -183,12 +185,15 @@
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4 class="modal-title">Sudoku Solver: How to</h4>
+	          <h4 class="modal-title">Sudoku: How to</h4>
 	        </div>
 	        <div class="modal-body">
-	        	<p>First clear the area. First game board is just for an example.</p>
-	        	<p>Select a number, Click to the desired box to place that. Select erase if needed.</p>
-	        	<p>Hit solve.</p>
+	        	<p>Number pad along with eraser is the only input buttons here. Select one number / eraser and click to desired cell to change.</p>
+	        	<p>Solve button solves the Sudoku.</p>
+	        	<p>Clear button clears the arena.</p>
+	        	<p>Check button checks the current board.</p>
+	        	<p>Generate button generates new game.</p>
+	        	<p>How to button says how to...</p>
 	        </div>
 	        <div class="modal-footer">
 	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -208,7 +213,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sudoku Solver: Wrong</h4>
+          <h4 class="modal-title">Sudoku: Wrong</h4>
         </div>
         <div class="modal-body">
         	<p>Given sudoku is not correct.</p>
@@ -221,10 +226,31 @@
     </div>
   </div>
   <!-- End Modal -->
+  <button type="button" class="btn btn-info hide" Id="checkThing" data-toggle="modal" data-target="#myModal3">How to</button>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sudoku: Result</h4>
+        </div>
+        <div class="modal-body">
+        	<p id="result"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- End Modal -->
   <!-- Footer -->
 	<footer class="page-footer font-small pt-4 myfoot">
 		<div class="container">
-		<p align="right">Made by <a href="https://www.facebook.com/rahat.hossain.9678">Rahat Hossain</a></p></div>
+		<p align="right">Made by <a href="https://github.com/rahathossain690">Rahat Hossain</a></p></div>
 	</footer>
 	<!-- Footer -->
 	<script src="Extras/index.js"></script>

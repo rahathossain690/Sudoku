@@ -63,7 +63,6 @@ document.getElementById("solve").addEventListener("click", noReturn => {
 				document.getElementById("r" + i + "" + j).innerHTML = res[i - 1][j - 1];
 			}
 		}
-	}
-	else{
+	} else{
 		document.getElementById("wrong").click();
-	};
+	}});

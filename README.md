@@ -1,5 +1,5 @@
 # Sudoku Solver
-Javascript library to solve Sudoku. Made for fun.
+Javascript library to solve Sudoku. Made for fun. Here Sudoku.html is also made as a demonstration.
 
 # How to use
 ## Step 1

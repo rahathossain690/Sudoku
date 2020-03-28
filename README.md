@@ -1,5 +1,5 @@
-# Sudoku Solver
-Javascript library for Sudoku, classic game. Made for fun. Generating and solving both implemented on this library.
+# Sudoku
+Javascript library for generating and solving Sudoku.
 
 # Web demonstration
 Link: https://rahathossain690.github.io/Sudoku-Solver/Sudoku.html
@@ -38,7 +38,7 @@ Call the function game.solve(matrix). Here the only argument is the game-matrix 
 
 It returns null if the given matrix is wrong or else it will return the solution matrix.
 ```
-let result = game.solve();
+let result = game.solve(matrix);
 
 //result will be something like
 /*

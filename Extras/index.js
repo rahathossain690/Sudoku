@@ -4,7 +4,7 @@
 */
 
 var currentDigit = null;
-
+var MATRIX;
 // adding event click listener to cells
 for(let i = 1; i <= 9; i++){
 	for(let j = 1; j <= 9; j++){
@@ -17,9 +17,10 @@ for(let i = 1; i <= 9; i++){
 // change cell 
 function changeCell(i, j){
 	if(currentDigit == null) return;
-	if(currentDigit == 0) 
+	if(currentDigit == 0 && MATRIX[i - 1][j - 1] === 0) 
 		document.getElementById("r" + i + "" + j).innerHTML =  "";
-	else document.getElementById("r" + i + "" + j).innerHTML = currentDigit;
+	else if(MATRIX[i - 1][j - 1] === 0)
+		document.getElementById("r" + i + "" + j).innerHTML = currentDigit;
 	document.getElementById("b" + currentDigit).classList.remove("clicked"); // can be done with action selector too.
 	currentDigit = null;
 }
@@ -38,6 +39,7 @@ function clearGame(){
 			document.getElementById("r" + i + "" + j).innerHTML = "";
 		}
 	}
+	MATRIX = genMat();
 }
 
 // check game
@@ -55,7 +57,7 @@ function checkGame(){
 function generate(){
 	clearGame();
 	let game = new Game();
-	let res = game.generate();
+	let res = MATRIX = game.generate();
 	for(let i = 1; i <= 9; i++){
 		for(let j = 1; j <= 9; j++){
 			if(res[i - 1][j - 1] === 0) continue;

@@ -8,7 +8,7 @@ Link: https://rahathossain690.github.io/Sudoku-Solver/Sudoku.html
 ## Step 1
 Download and add sudoku-solver.js library on your HTML code.
 ```
-<script type="text/javascript" src="sudoku-solver.js"></script>
+<script type="text/javascript" src="sudoku.js"></script>
 ```
 ## Step 2
 Game matrix! It is a two dimensional array storing the current state of the board.

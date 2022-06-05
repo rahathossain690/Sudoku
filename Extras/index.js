@@ -23,6 +23,12 @@ function changeCell(i, j){
 		document.getElementById("r" + i + "" + j).innerHTML = currentDigit;
 	document.getElementById("b" + currentDigit).classList.remove("clicked"); // can be done with action selector too.
 	currentDigit = null;
+	ans = checkGame(false)
+	if(ans == "Correct!") {
+		checkGame()
+	} else if (ans == "Incorrect!") {
+		checkGame()
+	}
 }
 
 // numpad function
@@ -43,14 +49,31 @@ function clearGame(){
 }
 
 // check game
-function checkGame(){
+function checkGame(act=true){
 	let res = new Game().check(genMat());
-	if(res){
-		document.getElementById("result").innerHTML = "Correct!";
-	} else{
-		document.getElementById("result").innerHTML = "Incorrect!";
+	let hobe = true
+	const metrix = genMat()
+	for(let i = 0; i < metrix.length; i++) {
+		for(let j = 0; j < metrix[0].length; j++) {
+			if(metrix[i][j] == 0) {
+				hobe = false
+			}
+		}
 	}
-	document.getElementById("checkThing").click();
+	let ans = null;
+	if(!hobe) {
+		if(act) document.getElementById("result").innerHTML = "Incomplete!";
+		ans = "Incomplete!"
+	}
+	else if(res){
+		if(act) document.getElementById("result").innerHTML = "Correct!";
+		ans = "Correct!"
+	} else{
+		if(act) document.getElementById("result").innerHTML = "Incorrect!";
+		ans = "Incorrect!"
+	}
+	if(act)document.getElementById("checkThing").click();
+	return ans
 }
 
 // gererate

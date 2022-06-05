@@ -49,7 +49,7 @@
 	<!-- Start Game Table -->
 	<div class="container">
 		<table style="margin-left: auto; margin-right: auto; text-align: center;">
-	    <tr>
+	    <tr >
 				<td Id="r11"></td>
 				<td Id="r12"></td>
 				<td Id="r13">3</td>
@@ -154,18 +154,33 @@
   <!-- End Game Table -->
 
   <!-- Start Control -->
-  <div class="container">
+  <div class="container" style="max-width: 200px;">
   	<div class="btn-group btn-group-justified">
-  		<span class="btn btn-default" onclick="numpad(0)" Id="b0"><img src="Extras/eraser.png" width="30px"></img></span>
   		<span class="btn btn-default" onclick="numpad(1)" Id="b1">1</span>
   		<span class="btn btn-default" onclick="numpad(2)" Id="b2">2</span>
   		<span class="btn btn-default" onclick="numpad(3)" Id="b3">3</span>
+		</div>
+		<!-- <br> -->
+  </div>
+  <div class="container" style="max-width: 200px;">
+  	<div class="btn-group btn-group-justified">
   		<span class="btn btn-default" onclick="numpad(4)" Id="b4">4</span>
   		<span class="btn btn-default" onclick="numpad(5)" Id="b5">5</span>
   		<span class="btn btn-default" onclick="numpad(6)" Id="b6">6</span>
+		</div>
+		<!-- <br> -->
+  </div>
+  <div class="container" style="max-width: 200px;">
+  	<div class="btn-group btn-group-justified">
   		<span class="btn btn-default" onclick="numpad(7)" Id="b7">7</span>
   		<span class="btn btn-default" onclick="numpad(8)" Id="b8">8</span>
   		<span class="btn btn-default" onclick="numpad(9)" Id="b9">9</span>
+		</div>
+		<!-- <br> -->
+  </div>
+  <div class="container" style="max-width: 200px;">
+  	<div class="btn-group btn-group-justified">
+		  <span class="btn btn-default" onclick="numpad(0)" Id="b0"><img src="Extras/eraser.png" width="30px"></img></span>
 		</div>
 		<br>
   </div>
@@ -173,11 +188,8 @@
   <!-- Start Action -->
   
   <div class="container" align="center">
-  	<button type="button" class="btn btn-success" id="solve">Solve</button>
-  	<button type="button" class="btn btn-primary" onclick="clearGame()">Clear</button>
-  	<button type="button" class="btn btn-warning" onclick="checkGame()">Check</button>
-  	<button type="button" class="btn btn-danger" onclick="generate()">Generate</button>
-  	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">How to</button>
+	
+  	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Menu</button>
   	<!-- Modal -->
 	  <div class="modal fade" id="myModal" role="dialog">
 	    <div class="modal-dialog">
@@ -185,15 +197,18 @@
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h4 class="modal-title">Sudoku: How to</h4>
+	          <h4 class="modal-title">Menu</h4>
 	        </div>
 	        <div class="modal-body">
-	        	<p>Number pad along with eraser is the only input buttons here. Select one number / eraser and click to desired cell to change.</p>
-	        	<p>Solve button solves the Sudoku.</p>
-	        	<p>Clear button clears the arena.</p>
-	        	<p>Check button checks the current board.</p>
-	        	<p>Generate button generates new game.</p>
-	        	<p>How to button says how to...</p>
+	        	<!-- <div class="container"  style="background-color: yellow;"> -->
+					<div class="btn-group btn-group-justified" style="background-color: yellow;">
+						<span type="button" class="btn btn-success" id="solve">Solve</span>
+						<span type="button" class="btn btn-primary" onclick="clearGame()">Clear</span>
+						<span type="button" class="btn btn-warning" onclick="checkGame()">Check</span>
+						<span type="button" class="btn btn-danger" onclick="generate()">Generate</span>
+					  </div>
+					  <!-- <br> -->
+				<!-- </div> -->
 	        </div>
 	        <div class="modal-footer">
 	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
